@@ -1,0 +1,14 @@
+import express from 'express';
+
+import { getPosts, getPost, createPost, updatePost, deletePost } from '../controllers/posts.js';
+
+const router = express.Router();
+import auth from "../middleware/auth.js";
+
+router.get('/:id', auth, getPosts);
+router.post('/',auth,  createPost);
+router.patch('/:id', auth, updatePost);
+router.delete('/:id', auth, deletePost);
+
+
+export default router;
